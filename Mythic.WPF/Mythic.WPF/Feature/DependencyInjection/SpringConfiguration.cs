@@ -16,7 +16,13 @@ namespace Mythic.WPF.Feature.DependencyInjection
         [Definition]
         public virtual PrintViewModel PrintViewModel()
         {
-            return new PrintViewModel();
+            return new PrintViewModel(PrintRepository());
+        }
+
+        [Definition]
+        public virtual IPrintRepository PrintRepository()
+        {
+            return new PrintRepository();
         }
     }
 }
