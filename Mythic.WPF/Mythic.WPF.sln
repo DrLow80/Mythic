@@ -5,6 +5,18 @@ VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mythic.WPF", "Mythic.WPF\Mythic.WPF.csproj", "{214B02BA-F320-4997-AA61-7A45FE001451}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mythic.Project.Roller", "Mythic.Project.Roller\Mythic.Project.Roller.csproj", "{5F00B196-CC6E-435D-8102-510603D68B71}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Foundation", "Foundation", "{FE4E8A5A-1673-4A2A-A182-3B086DE10332}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Feature", "Feature", "{4BED2E41-5CCD-47CB-9E32-34F4F2D52878}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{3B816101-BFCC-4606-8733-0FDD6B912A5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mythic.Feature.Engine", "Mythic.Feature.Engine\Mythic.Feature.Engine.csproj", "{EE98C06F-91D0-480C-A37B-3B90FB80D935}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mythic.Foundation.DependencyInjection", "Mythic.Foundation.DependencyInjection\Mythic.Foundation.DependencyInjection.csproj", "{C174764A-2E43-4E6A-AC93-2CB59871B878}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +27,27 @@ Global
 		{214B02BA-F320-4997-AA61-7A45FE001451}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{214B02BA-F320-4997-AA61-7A45FE001451}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{214B02BA-F320-4997-AA61-7A45FE001451}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F00B196-CC6E-435D-8102-510603D68B71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F00B196-CC6E-435D-8102-510603D68B71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F00B196-CC6E-435D-8102-510603D68B71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F00B196-CC6E-435D-8102-510603D68B71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE98C06F-91D0-480C-A37B-3B90FB80D935}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE98C06F-91D0-480C-A37B-3B90FB80D935}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE98C06F-91D0-480C-A37B-3B90FB80D935}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE98C06F-91D0-480C-A37B-3B90FB80D935}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C174764A-2E43-4E6A-AC93-2CB59871B878}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C174764A-2E43-4E6A-AC93-2CB59871B878}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C174764A-2E43-4E6A-AC93-2CB59871B878}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C174764A-2E43-4E6A-AC93-2CB59871B878}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{214B02BA-F320-4997-AA61-7A45FE001451} = {3B816101-BFCC-4606-8733-0FDD6B912A5C}
+		{5F00B196-CC6E-435D-8102-510603D68B71} = {3B816101-BFCC-4606-8733-0FDD6B912A5C}
+		{EE98C06F-91D0-480C-A37B-3B90FB80D935} = {4BED2E41-5CCD-47CB-9E32-34F4F2D52878}
+		{C174764A-2E43-4E6A-AC93-2CB59871B878} = {FE4E8A5A-1673-4A2A-A182-3B086DE10332}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {78263D2E-8F6F-4843-91EB-8B866BC5DCDE}
