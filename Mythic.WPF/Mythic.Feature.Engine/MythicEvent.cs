@@ -274,32 +274,32 @@ namespace Mythic.Feature.Engine
         {
             diceRoll = diceRoll ?? DiceRoll.Rolld100().Value;
 
-            return Actions.ElementAt(diceRoll.Value);
+            return Actions.ElementAt(diceRoll);
         }
 
         private static string GetEventFocus(DiceRoll diceRoll = null)
         {
             diceRoll = diceRoll ?? DiceRoll.Rolld100().Value;
 
-            if (diceRoll.Value < 7) return "Remote event";
+            if (diceRoll < 7) return "Remote event";
 
-            if (diceRoll.Value < 28) return "NPC action";
+            if (diceRoll < 28) return "NPC action";
 
-            if (diceRoll.Value < 35) return "Introduce a new NPC";
+            if (diceRoll < 35) return "Introduce a new NPC";
 
-            if (diceRoll.Value < 45) return "Move toward a thread";
+            if (diceRoll < 45) return "Move toward a thread";
 
-            if (diceRoll.Value < 52) return "Move away from a thread";
+            if (diceRoll < 52) return "Move away from a thread";
 
-            if (diceRoll.Value < 55) return "Close a thread";
+            if (diceRoll < 55) return "Close a thread";
 
-            if (diceRoll.Value < 67) return "PC negative";
+            if (diceRoll < 67) return "PC negative";
 
-            if (diceRoll.Value < 75) return "PC positive";
+            if (diceRoll < 75) return "PC positive";
 
-            if (diceRoll.Value < 83) return "Ambiguous event";
+            if (diceRoll < 83) return "Ambiguous event";
 
-            if (diceRoll.Value < 92) return "NPC negative";
+            if (diceRoll < 92) return "NPC negative";
 
             return "NPC positive";
         }
@@ -308,16 +308,16 @@ namespace Mythic.Feature.Engine
         {
             diceRoll = diceRoll ?? DiceRoll.Rolld100().Value;
 
-            return Subjects.ElementAt(diceRoll.Value);
+            return Subjects.ElementAt(diceRoll);
         }
 
         private static string GetStatus(int chaos, DiceRoll diceRoll = null)
         {
             diceRoll = diceRoll ?? DiceRoll.Rolld10().Value;
 
-            if (diceRoll.Value > chaos) return Normal;
+            if (diceRoll > chaos) return Normal;
 
-            if (diceRoll.Value % 2 == 0) return Interrupted;
+            if (diceRoll % 2 == 0) return Interrupted;
 
             return Altered;
         }

@@ -51,6 +51,23 @@ namespace Mythic.Feature.Engine
 
         public bool IsDoubles => Value % Doubles == 0;
 
-        public int Chaos => IsDoubles ? Value / Doubles : int.MaxValue;
+        public int Chaos => IsDoubles ? Value / Doubles : Ten;
+
+        public static implicit operator int(DiceRoll diceRoll)
+        {
+            return diceRoll?.Value ?? Min;
+        }
+
+        public static implicit operator DiceRoll(int value)
+        {
+            var result = Build(value);
+
+            return result.IsFailure ? new DiceRoll(Min) : result.Value;
+        }
+
+        public override string ToString()
+        {
+            return Value.ToString();
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using CSharpFunctionalExtensions;
 using System.Collections.Generic;
+using Mythic.Feature.Engine;
 
 namespace Mythic.WPF.Printing
 {
@@ -51,7 +52,7 @@ namespace Mythic.WPF.Printing
 
             for (var i = 0; i < amount; i++)
             {
-                var result = MythicFate.Build(chaos, DiceRoll.Rolld100());
+                var result = MythicFate.Build(chaos, DiceRoll.Rolld100().Value);
 
                 if (result.IsFailure) return Result.Fail<MythicFate[]>(result.Error);
 

@@ -51,6 +51,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Chaos.cs" />
     <Compile Include="DiceRoll.cs" />
     <Compile Include="FateResult.cs" />
     <Compile Include="FateTable.cs" />

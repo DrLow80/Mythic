@@ -45,7 +45,7 @@ namespace Mythic.Feature.Engine
 
         public Result<FateResult> Check(DiceRoll diceRoll)
         {
-            var value = ToResult(diceRoll.Value);
+            var value = ToResult(diceRoll);
 
             return FateResult.Build(Name, value);
         }

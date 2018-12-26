@@ -10,32 +10,29 @@ namespace Mythic.Project.Roller
     [AddINotifyPropertyChangedInterface]
     public class ApplicationViewModel
     {
-        public int Chaos { get; set; } = 5;
+        public Chaos Chaos { get; set; } = Feature.Engine.Chaos.Build(5).Value;
 
         public ICommand DecreaseChaosCommand => new RelayCommand(DecreaseChaos, CanDecreaseChaos);
         public ICommand IncreaseChaosCommand => new RelayCommand(IncreaseChaos, CanIncreaseChaos);
 
-        public const int MinChaos = 1;
-        public const int MaxChaos = 9;
-
         private bool CanIncreaseChaos(object obj)
         {
-            return Chaos < MaxChaos;
+            return Chaos < Chaos.Max;
         }
 
         private void IncreaseChaos(object obj)
         {
-            Chaos++;
+            Chaos = Chaos.Increment();
         }
 
         private bool CanDecreaseChaos(object obj)
         {
-            return Chaos > MinChaos;
+            return Chaos > Chaos.Min;
         }
 
         private void DecreaseChaos(object obj)
         {
-            Chaos--;
+            Chaos = Chaos.Decrement();
         }
 
         public ICommand AddRandomEventCommand => new RelayCommand(AddRandomEvent);
@@ -49,10 +46,18 @@ namespace Mythic.Project.Roller
                 throw new ApplicationException(mythicEventResult.Error);
             }
 
-            MythicEvent = mythicEventResult.Value;
+            MythicEventScene = mythicEventResult.Value.MythicEventScene.ToString();
+
+            Status = mythicEventResult.Value.Status;
+
+            InterruptMythicEventScene = mythicEventResult.Value.InterruptMythicEventScene?.ToString();
         }
 
-        public MythicEvent MythicEvent { get; set; }
+        //public MythicEvent MythicEvent { get; set; }
+
+        public string MythicEventScene { get; set; }
+        public string Status { get; set; }
+        public string InterruptMythicEventScene { get; set; }
 
         public ICommand RollFateCommand => new RelayCommand<string>(RollFate);
 
@@ -60,14 +65,14 @@ namespace Mythic.Project.Roller
         {
             DiceRoll diceRoll = DiceRoll.Rolld100().Value;
 
-            var mythicFateResult = MythicFate.Build(Chaos, diceRoll);
+            var mythicFateResult = MythicFate.Build(Chaos, diceRoll, obj);
 
             if (mythicFateResult.IsFailure)
             {
                 throw new ApplicationException(mythicFateResult.Error);
             }
 
-            FateResult = $"{diceRoll.Value}: {mythicFateResult.Value.FateResults.First(x => x.Name == obj).Value}";
+            FateResult = $"{diceRoll}: {mythicFateResult.Value.FateResults.First(x => x.Name == obj).Value}";
 
             if (mythicFateResult.Value.HasRandomMythicEvent)
             {

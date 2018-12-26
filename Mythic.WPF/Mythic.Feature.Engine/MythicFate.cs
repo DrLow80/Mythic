@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using CSharpFunctionalExtensions;
+﻿using CSharpFunctionalExtensions;
+using System.Collections.Generic;
 
 namespace Mythic.Feature.Engine
 {
@@ -8,51 +7,30 @@ namespace Mythic.Feature.Engine
     {
         public const string InvalidChaos = "InvalidChaos";
 
-        private MythicFate(int chaos, DiceRoll diceRoll, FateResult[] fateResults, bool hasRandomMythicEvent)
+        private MythicFate(Chaos chaos, DiceRoll diceRoll, IEnumerable<FateResult> fateResults)
         {
             Chaos = chaos;
             DiceRoll = diceRoll;
             FateResults = fateResults;
-            HasRandomMythicEvent = hasRandomMythicEvent;
         }
 
-        public int Chaos { get; }
+        public Chaos Chaos { get; }
 
         public DiceRoll DiceRoll { get; }
 
-        public FateResult[] FateResults { get; }
+        public IEnumerable<FateResult> FateResults { get; }
 
-        public bool HasRandomMythicEvent { get; }
+        public bool HasRandomMythicEvent => DiceRoll.Chaos <= Chaos;
 
-        public static Result<MythicFate> Build(int chaos, DiceRoll diceRoll = null)
+        public static Result<MythicFate> Build(Chaos chaos, DiceRoll diceRoll = null, params string[] odds)
         {
-            if (chaos < 1 || chaos > 9) return Result.Fail<MythicFate>(InvalidChaos);
+            diceRoll = diceRoll ?? Engine.DiceRoll.Rolld100().Value;
 
-            diceRoll = diceRoll ?? DiceRoll.Rolld100().Value;
+            IEnumerable<FateResult> fateResults = FateTable.GetFateResults(chaos, diceRoll, odds);
 
-            var fateResults = GetFateResults(chaos, diceRoll);
-
-            var listFateResult = new List<FateResult>();
-
-            foreach (var fateResult in fateResults)
-            {
-                if (fateResult.IsFailure) return Result.Fail<MythicFate>(fateResult.Error);
-
-                listFateResult.Add(fateResult.Value);
-            }
-
-            var hasRandomEvent = diceRoll.Chaos <= chaos;
-
-            var mythicFate = new MythicFate(chaos, diceRoll, listFateResult.ToArray(), hasRandomEvent);
+            MythicFate mythicFate = new MythicFate(chaos, diceRoll, fateResults);
 
             return Result.Ok(mythicFate);
-        }
-
-        private static IEnumerable<Result<FateResult>> GetFateResults(int chaos, DiceRoll diceRoll)
-        {
-            diceRoll = diceRoll ?? DiceRoll.Rolld100().Value;
-
-            return FateTable.GetMythicOddsByChaos(chaos).Select(mythicOdd => mythicOdd.Check(diceRoll));
         }
     }
 }

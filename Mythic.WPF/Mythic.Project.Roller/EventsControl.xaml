@@ -17,30 +17,35 @@
     </UserControl.DataContext>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="Add"
+            <MenuItem 
+
                       Command="{Binding AddRandomEventCommand}"
-                      Margin="5"></MenuItem>
+                      Margin="5">
+                <MenuItem.Header>
+                    <TextBlock Text="Roll" FontSize="25"></TextBlock>
+
+                </MenuItem.Header>
+            </MenuItem>
         </Menu>
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition Height="Auto" />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <TextBlock TextWrapping="Wrap"
-                       Text="{Binding MythicEvent.MythicEventScene}"
-                       Margin="0,0,0,5" />
-            <TextBlock TextWrapping="Wrap"
-                       Text="{Binding MythicEvent.Status}"
-                       Grid.Row="1"
+            <StackPanel>
+                <TextBlock TextWrapping="Wrap"
+                       Text="{Binding MythicEventScene}"
+                       Margin="0,0,0,5"
+                       Padding="5"
+                       FontSize="25" />
+                <TextBlock TextWrapping="Wrap"
+                       Text="{Binding Status}"
                        Margin="0,5"
-                       Padding="0,5"
-                       Background="LightGray" />
-            <TextBlock TextWrapping="Wrap"
-                       Text="{Binding MythicEvent.InterruptMythicEventScene}"
-                       Grid.Row="2"
-                       Margin="0,5,0,0" />
-           
+                       Background="LightGray"
+                       Padding="5"
+                       FontSize="25" />
+                <TextBlock TextWrapping="Wrap"
+                       Text="{Binding InterruptMythicEventScene}"
+                       Margin="0,5,0,0"
+                       Padding="5"
+                       FontSize="25" />
+            </StackPanel>
         </Grid>
     </DockPanel>
 </UserControl>

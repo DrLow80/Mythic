@@ -4,7 +4,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Mythic.WPF.Printing"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" 
+             xmlns:engine="clr-namespace:Mythic.Feature.Engine;assembly=Mythic.Feature.Engine"
              x:Class="Mythic.WPF.Printing.PrintView"
              mc:Ignorable="d"
              d:DesignHeight="450"
@@ -1591,7 +1592,7 @@
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
-                        <DataTemplate DataType="{x:Type local:MythicFate}">
+                        <DataTemplate DataType="{x:Type engine:MythicFate}">
                             <Border BorderBrush="Black"
                                     BorderThickness="1">
                                 <Grid Height="3.5in"

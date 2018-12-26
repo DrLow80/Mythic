@@ -74,16 +74,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Printing\DiceRoll.cs" />
-    <Compile Include="Printing\FateResult.cs" />
-    <Compile Include="Printing\FateTable.cs" />
     <Compile Include="Printing\GenerateRequest.cs" />
     <Compile Include="Printing\GenerateResponse.cs" />
     <Compile Include="Printing\IPrintRepository.cs" />
-    <Compile Include="Printing\MythicEvent.cs" />
-    <Compile Include="Printing\MythicEventScene.cs" />
-    <Compile Include="Printing\MythicFate.cs" />
-    <Compile Include="Printing\MythicOdd.cs" />
     <Compile Include="Printing\PrintRepository.cs" />
     <Compile Include="Project\BaseViewModel.cs" />
     <Compile Include="RelayCommand.cs" />
@@ -141,6 +134,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="FodyWeavers.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mythic.Feature.Engine\Mythic.Feature.Engine.csproj">
+      <Project>{ee98c06f-91d0-480c-a37b-3b90fb80d935}</Project>
+      <Name>Mythic.Feature.Engine</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.3.2.9\build\Fody.targets" Condition="Exists('..\packages\Fody.3.2.9\build\Fody.targets')" />

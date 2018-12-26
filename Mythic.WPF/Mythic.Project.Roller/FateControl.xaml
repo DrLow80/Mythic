@@ -25,12 +25,21 @@
         <TextBlock TextWrapping="Wrap"
                    Text="{Binding FateResult}"
                    Margin="0,0,0,5"
-                   TextAlignment="Center" />
+                   TextAlignment="Center" 
+                   FontSize="25"/>
         <ItemsControl Grid.Row="1"
                       ItemsSource="{Binding FateOdds}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate DataType="{x:Type system:String}">
-                    <Button Margin="0,5"
+                    <Button Margin="5"
+                            Padding="5"
+                            Width="100"
+                            Height="50"
                             Content="{Binding}"
                             Command="{Binding ElementName=ParentUserControl, Path=DataContext.RollFateCommand}"
                             CommandParameter="{Binding}"></Button>
