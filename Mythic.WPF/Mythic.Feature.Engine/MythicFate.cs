@@ -57,8 +57,6 @@ namespace Mythic.Feature.Engine
 
         private static IEnumerable<Result<FateResult>> GetFateResults(int chaos, DiceRoll diceRoll)
         {
-            //need to look up all mythicodds by chaos
-
             diceRoll = diceRoll ?? DiceRoll.Rolld100();
 
             return FateTable.GetMythicOddsByChaos(chaos).Select(mythicOdd => mythicOdd.Check(diceRoll));

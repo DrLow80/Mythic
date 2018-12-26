@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mythic.Feature.Engine", "My
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mythic.Foundation.DependencyInjection", "Mythic.Foundation.DependencyInjection\Mythic.Foundation.DependencyInjection.csproj", "{C174764A-2E43-4E6A-AC93-2CB59871B878}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mythic.Feature.Engine.Tests", "Mythic.Feature.Engine.Tests\Mythic.Feature.Engine.Tests.csproj", "{70116CA1-1B62-4DD7-9148-5F1B2287AFF8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{C174764A-2E43-4E6A-AC93-2CB59871B878}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C174764A-2E43-4E6A-AC93-2CB59871B878}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C174764A-2E43-4E6A-AC93-2CB59871B878}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70116CA1-1B62-4DD7-9148-5F1B2287AFF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70116CA1-1B62-4DD7-9148-5F1B2287AFF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70116CA1-1B62-4DD7-9148-5F1B2287AFF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70116CA1-1B62-4DD7-9148-5F1B2287AFF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{5F00B196-CC6E-435D-8102-510603D68B71} = {3B816101-BFCC-4606-8733-0FDD6B912A5C}
 		{EE98C06F-91D0-480C-A37B-3B90FB80D935} = {4BED2E41-5CCD-47CB-9E32-34F4F2D52878}
 		{C174764A-2E43-4E6A-AC93-2CB59871B878} = {FE4E8A5A-1673-4A2A-A182-3B086DE10332}
+		{70116CA1-1B62-4DD7-9148-5F1B2287AFF8} = {4BED2E41-5CCD-47CB-9E32-34F4F2D52878}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {78263D2E-8F6F-4843-91EB-8B866BC5DCDE}
