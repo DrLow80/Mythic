@@ -272,14 +272,14 @@ namespace Mythic.Feature.Engine
 
         private static string GetEventAction(DiceRoll diceRoll = null)
         {
-            diceRoll = diceRoll ?? DiceRoll.Rolld100();
+            diceRoll = diceRoll ?? DiceRoll.Rolld100().Value;
 
             return Actions.ElementAt(diceRoll.Value);
         }
 
         private static string GetEventFocus(DiceRoll diceRoll = null)
         {
-            diceRoll = diceRoll ?? DiceRoll.Rolld100();
+            diceRoll = diceRoll ?? DiceRoll.Rolld100().Value;
 
             if (diceRoll.Value < 7) return "Remote event";
 
@@ -306,14 +306,14 @@ namespace Mythic.Feature.Engine
 
         private static string GetEventSubject(DiceRoll diceRoll = null)
         {
-            diceRoll = diceRoll ?? DiceRoll.Rolld100();
+            diceRoll = diceRoll ?? DiceRoll.Rolld100().Value;
 
             return Subjects.ElementAt(diceRoll.Value);
         }
 
         private static string GetStatus(int chaos, DiceRoll diceRoll = null)
         {
-            diceRoll = diceRoll ?? DiceRoll.Rolld10();
+            diceRoll = diceRoll ?? DiceRoll.Rolld10().Value;
 
             if (diceRoll.Value > chaos) return Normal;
 

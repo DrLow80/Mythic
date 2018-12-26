@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Runtime.InteropServices;
+using CSharpFunctionalExtensions;
 
 namespace Mythic.Feature.Engine
 {
@@ -13,14 +15,42 @@ namespace Mythic.Feature.Engine
 
         public int Value { get; }
 
-        public static DiceRoll Rolld10()
+        public static Result<DiceRoll> Rolld10()
         {
-            return new DiceRoll(Random.Next(1, 10));
+            var value = Random.Next(Min, Ten);
+
+            return Build(value);
         }
 
-        public static DiceRoll Rolld100()
+        public static Result<DiceRoll> Rolld100()
         {
-            return new DiceRoll(Random.Next(1, 100));
+            var value = Random.Next(Min, Max);
+
+            return Build(value);
         }
+
+        public const string FailInvalidValue = "FailInvalidValue";
+
+        public const int Max = 100;
+        public const int Min = 1;
+        public const int Doubles = 11;
+        public const int Ten = 10;
+
+
+        public static Result<DiceRoll> Build(int value)
+        {
+            if (value < Min || value > Max)
+            {
+                return Result.Fail<DiceRoll>(FailInvalidValue);
+            }
+
+            DiceRoll diceRoll = new DiceRoll(value);
+
+            return Result.Ok(diceRoll);
+        }
+
+        public bool IsDoubles => Value % Doubles == 0;
+
+        public int Chaos => IsDoubles ? Value / Doubles : int.MaxValue;
     }
 }

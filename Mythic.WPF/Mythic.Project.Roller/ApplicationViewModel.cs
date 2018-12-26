@@ -1,10 +1,9 @@
-﻿using System;
+﻿using Mythic.Feature.Engine;
+using PropertyChanged;
+using System;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Windows.Input;
-using Mythic.Feature.Engine;
-using PropertyChanged;
 
 namespace Mythic.Project.Roller
 {
@@ -59,8 +58,7 @@ namespace Mythic.Project.Roller
 
         private void RollFate(string obj)
         {
-            DiceRoll diceRoll = DiceRoll.Rolld100();
-            
+            DiceRoll diceRoll = DiceRoll.Rolld100().Value;
 
             var mythicFateResult = MythicFate.Build(Chaos, diceRoll);
 
@@ -69,17 +67,15 @@ namespace Mythic.Project.Roller
                 throw new ApplicationException(mythicFateResult.Error);
             }
 
-            FateResult = $"{diceRoll.Value}: {mythicFateResult.Value.FateResults.First(x => x.Name == obj).Value}" ;
+            FateResult = $"{diceRoll.Value}: {mythicFateResult.Value.FateResults.First(x => x.Name == obj).Value}";
 
             if (mythicFateResult.Value.HasRandomMythicEvent)
             {
                 AddRandomEvent(this);
             }
-
         }
 
-        public ObservableCollection<string> FateOdds { get; set; }= new ObservableCollection<string>(FateTable.FateOdds);
-
+        public ObservableCollection<string> FateOdds { get; set; } = new ObservableCollection<string>(FateTable.FateOdds);
 
         public string FateResult { get; set; }
     }
