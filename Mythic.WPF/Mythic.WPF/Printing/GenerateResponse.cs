@@ -1,5 +1,5 @@
-﻿using CSharpFunctionalExtensions;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using CSharpFunctionalExtensions;
 using Mythic.Feature.Engine;
 
 namespace Mythic.WPF.Printing

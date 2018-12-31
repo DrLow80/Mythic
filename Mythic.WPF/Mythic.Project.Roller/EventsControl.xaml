@@ -17,33 +17,28 @@
     </UserControl.DataContext>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem
-
-                      Command="{Binding AddRandomEventCommand}"
+            <MenuItem Command="{Binding AddRandomEventCommand}"
                       Margin="5">
                 <MenuItem.Header>
-                    <TextBlock Text="Roll"  />
+                    <TextBlock Text="Roll" />
                 </MenuItem.Header>
             </MenuItem>
         </Menu>
         <Grid>
             <StackPanel>
                 <TextBlock TextWrapping="Wrap"
-                       Text="{Binding MythicEventScene}"
-                       Margin="0,0,0,5"
-                       Padding="5"
-                       />
+                           Text="{Binding MythicEventScene}"
+                           Margin="0,0,0,5"
+                           Padding="5" />
                 <TextBlock TextWrapping="Wrap"
-                       Text="{Binding Status}"
-                       Margin="0,5"
-                       Background="LightGray"
-                       Padding="5"
-                       />
+                           Text="{Binding Status}"
+                           Margin="0,5"
+                           Background="LightGray"
+                           Padding="5" />
                 <TextBlock TextWrapping="Wrap"
-                       Text="{Binding InterruptMythicEventScene}"
-                       Margin="0,5,0,0"
-                       Padding="5"
-                       />
+                           Text="{Binding InterruptMythicEventScene}"
+                           Margin="0,5,0,0"
+                           Padding="5" />
             </StackPanel>
         </Grid>
     </DockPanel>

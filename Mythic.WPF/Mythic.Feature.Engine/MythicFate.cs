@@ -1,5 +1,5 @@
-﻿using CSharpFunctionalExtensions;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using CSharpFunctionalExtensions;
 
 namespace Mythic.Feature.Engine
 {
@@ -24,11 +24,11 @@ namespace Mythic.Feature.Engine
 
         public static Result<MythicFate> Build(Chaos chaos, DiceRoll diceRoll = null, params string[] odds)
         {
-            diceRoll = diceRoll ?? Engine.DiceRoll.Rolld100().Value;
+            diceRoll = diceRoll ?? DiceRoll.Rolld100().Value;
 
-            IEnumerable<FateResult> fateResults = FateTable.GetFateResults(chaos, diceRoll, odds);
+            var fateResults = FateTable.GetFateResults(chaos, diceRoll, odds);
 
-            MythicFate mythicFate = new MythicFate(chaos, diceRoll, fateResults);
+            var mythicFate = new MythicFate(chaos, diceRoll, fateResults);
 
             return Result.Ok(mythicFate);
         }

@@ -1,11 +1,16 @@
 ﻿using System;
-using System.Runtime.InteropServices;
 using CSharpFunctionalExtensions;
 
 namespace Mythic.Feature.Engine
 {
     public class DiceRoll
     {
+        public const string FailInvalidValue = "FailInvalidValue";
+
+        public const int Max = 100;
+        public const int Min = 1;
+        public const int Doubles = 11;
+        public const int Ten = 10;
         private static readonly Random Random = new Random();
 
         private DiceRoll(int value)
@@ -14,6 +19,10 @@ namespace Mythic.Feature.Engine
         }
 
         public int Value { get; }
+
+        public bool IsDoubles => Value % Doubles == 0;
+
+        public int Chaos => IsDoubles ? Value / Doubles : Ten;
 
         public static Result<DiceRoll> Rolld10()
         {
@@ -29,29 +38,14 @@ namespace Mythic.Feature.Engine
             return Build(value);
         }
 
-        public const string FailInvalidValue = "FailInvalidValue";
-
-        public const int Max = 100;
-        public const int Min = 1;
-        public const int Doubles = 11;
-        public const int Ten = 10;
-
-
         public static Result<DiceRoll> Build(int value)
         {
-            if (value < Min || value > Max)
-            {
-                return Result.Fail<DiceRoll>(FailInvalidValue);
-            }
+            if (value < Min || value > Max) return Result.Fail<DiceRoll>(FailInvalidValue);
 
-            DiceRoll diceRoll = new DiceRoll(value);
+            var diceRoll = new DiceRoll(value);
 
             return Result.Ok(diceRoll);
         }
-
-        public bool IsDoubles => Value % Doubles == 0;
-
-        public int Chaos => IsDoubles ? Value / Doubles : Ten;
 
         public static implicit operator int(DiceRoll diceRoll)
         {

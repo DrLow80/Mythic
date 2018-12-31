@@ -36,9 +36,9 @@ namespace Mythic.Feature.Engine
 
         public static Result<MythicOdd> Build(int index, string name, int value)
         {
-            int exceptionalSuccess = GetLowerTwentyPercent(value);
+            var exceptionalSuccess = GetLowerTwentyPercent(value);
 
-            int failure = GetUpperTwentyPercent(value);
+            var failure = GetUpperTwentyPercent(value);
 
             return Build(index, name, exceptionalSuccess, value, failure);
         }
@@ -52,42 +52,27 @@ namespace Mythic.Feature.Engine
 
         public string ToResult(int value)
         {
-            if (value <= ExceptionalSuccess)
-            {
-                return ExceptionalSuccessResult;
-            }
+            if (value <= ExceptionalSuccess) return ExceptionalSuccessResult;
 
-            if (value <= Success)
-            {
-                return SuccessResult;
-            }
+            if (value <= Success) return SuccessResult;
 
-            if (value <= Failure)
-            {
-                return FailureResult;
-            }
+            if (value <= Failure) return FailureResult;
 
             return ExceptionalFailureResult;
         }
 
         private static int GetLowerTwentyPercent(int value)
         {
-            var result = (int)(value * .2);
+            var result = (int) (value * .2);
 
-            if (result < 1)
-            {
-                result = 0;
-            }
+            if (result < 1) result = 0;
 
             return result;
         }
 
         private static int GetUpperTwentyPercent(int value)
         {
-            if (value > 100)
-            {
-                return 0;
-            }
+            if (value > 100) return 0;
 
             var failure = 100 - value;
 

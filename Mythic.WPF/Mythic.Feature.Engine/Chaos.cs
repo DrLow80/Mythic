@@ -4,24 +4,24 @@ namespace Mythic.Feature.Engine
 {
     public class Chaos
     {
-        private Chaos(int value = Default)
-        {
-            Value = value;
-        }
-
         public const string InvalidChaos = "InvalidChaos";
-
-        public int Value { get; private set; }
 
         public const int Min = 1;
         public const int Max = 9;
         public const int Default = 5;
 
+        private Chaos(int value = Default)
+        {
+            Value = value;
+        }
+
+        public int Value { get; private set; }
+
         public static Result<Chaos> Build(int value)
         {
             if (value < Min || value > Max) return Result.Fail<Chaos>(InvalidChaos);
 
-            Chaos chaos = new Chaos(value);
+            var chaos = new Chaos(value);
 
             return Result.Ok(chaos);
         }
@@ -40,20 +40,14 @@ namespace Mythic.Feature.Engine
 
         public Chaos Increment()
         {
-            if (Value == Max)
-            {
-                return this;
-            }
+            if (Value == Max) return this;
 
             return ++Value;
         }
 
         public Chaos Decrement()
         {
-            if (Value == Min)
-            {
-                return this;
-            }
+            if (Value == Min) return this;
 
             return --Value;
         }

@@ -1,5 +1,5 @@
-﻿using Mythic.WPF.View.ViewModel;
-using System.Windows.Input;
+﻿using System.Windows.Input;
+using Mythic.WPF.View.ViewModel;
 
 namespace Mythic.WPF.Project
 {

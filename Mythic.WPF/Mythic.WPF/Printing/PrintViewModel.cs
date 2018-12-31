@@ -1,7 +1,7 @@
-﻿using Mythic.WPF.Project;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using Mythic.Feature.Engine;
+using Mythic.WPF.Project;
 
 namespace Mythic.WPF.Printing
 {

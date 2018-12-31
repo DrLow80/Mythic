@@ -4,7 +4,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Mythic.WPF.Printing"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" 
+             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
              xmlns:engine="clr-namespace:Mythic.Feature.Engine;assembly=Mythic.Feature.Engine"
              x:Class="Mythic.WPF.Printing.PrintView"
              mc:Ignorable="d"
@@ -254,13 +254,19 @@
                         </RepeatButton>
                         <TextBlock HorizontalAlignment="Center"
                                    Uid="TextBlock_8"
-                                   VerticalAlignment="Center"><Run Text=" " /><Run Text=" " /><InlineUIContainer>
+                                   VerticalAlignment="Center">
+                            <Run Text=" " /><Run Text=" " />
+                            <InlineUIContainer>
                                 <TextBlock Text="{Binding PageNumber, RelativeSource={RelativeSource TemplatedParent}}"
                                            Uid="TextBlock_9" />
-                            </InlineUIContainer><Run Text=" " /><Run Text=" of " /><Run Text=" " /><InlineUIContainer>
+                            </InlineUIContainer>
+                            <Run Text=" " /><Run Text=" of " /><Run Text=" " />
+                            <InlineUIContainer>
                                 <TextBlock Text="{Binding PageCount, RelativeSource={RelativeSource TemplatedParent}}"
                                            Uid="TextBlock_10" />
-                            </InlineUIContainer><Run Text=" " /><Run Text=" " /></TextBlock>
+                            </InlineUIContainer>
+                            <Run Text=" " /><Run Text=" " />
+                        </TextBlock>
                         <RepeatButton Command="NavigationCommands.NextPage"
                                       IsEnabled="{TemplateBinding CanGoToNextPage}"
                                       ToolTip="Next Page"
@@ -871,10 +877,11 @@
                                                         <Canvas Height="32"
                                                                 Uid="Canvas_4"
                                                                 Width="32">
-                                                            <Path Fill="{Binding Background, RelativeSource={RelativeSource TemplatedParent}}"
-                                                                  Height="32"
-                                                                  Uid="Path_7"
-                                                                  Width="32">
+                                                            <Path
+                                                                Fill="{Binding Background, RelativeSource={RelativeSource TemplatedParent}}"
+                                                                Height="32"
+                                                                Uid="Path_7"
+                                                                Width="32">
                                                                 <Path.Data>
                                                                     <GeometryGroup>
                                                                         <EllipseGeometry Center="16,16"
@@ -1144,9 +1151,11 @@
                                                                                     Value="False" />
                                                                             <Setter Property="Template">
                                                                                 <Setter.Value>
-                                                                                    <ControlTemplate TargetType="{x:Type RepeatButton}">
-                                                                                        <Border Background="Transparent"
-                                                                                                Uid="Border_43" />
+                                                                                    <ControlTemplate
+                                                                                        TargetType="{x:Type RepeatButton}">
+                                                                                        <Border
+                                                                                            Background="Transparent"
+                                                                                            Uid="Border_43" />
                                                                                     </ControlTemplate>
                                                                                 </Setter.Value>
                                                                             </Setter>
@@ -1167,9 +1176,11 @@
                                                                                     Value="False" />
                                                                             <Setter Property="Template">
                                                                                 <Setter.Value>
-                                                                                    <ControlTemplate TargetType="{x:Type RepeatButton}">
-                                                                                        <Border Background="Transparent"
-                                                                                                Uid="Border_43" />
+                                                                                    <ControlTemplate
+                                                                                        TargetType="{x:Type RepeatButton}">
+                                                                                        <Border
+                                                                                            Background="Transparent"
+                                                                                            Uid="Border_43" />
                                                                                     </ControlTemplate>
                                                                                 </Setter.Value>
                                                                             </Setter>
@@ -1194,55 +1205,70 @@
                                                                                     Value="6" />
                                                                             <Setter Property="Template">
                                                                                 <Setter.Value>
-                                                                                    <ControlTemplate TargetType="{x:Type Thumb}">
-                                                                                        <Border Background="Transparent"
-                                                                                                Margin="-2"
-                                                                                                Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}}"
-                                                                                                Uid="Border_44">
-                                                                                            <Viewbox HorizontalAlignment="Center"
-                                                                                                     Uid="Viewbox_4"
-                                                                                                     VerticalAlignment="Center"
-                                                                                                     Width="{Binding FontSize, RelativeSource={RelativeSource TemplatedParent}}">
+                                                                                    <ControlTemplate
+                                                                                        TargetType="{x:Type Thumb}">
+                                                                                        <Border
+                                                                                            Background="Transparent"
+                                                                                            Margin="-2"
+                                                                                            Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}}"
+                                                                                            Uid="Border_44">
+                                                                                            <Viewbox
+                                                                                                HorizontalAlignment="Center"
+                                                                                                Uid="Viewbox_4"
+                                                                                                VerticalAlignment="Center"
+                                                                                                Width="{Binding FontSize, RelativeSource={RelativeSource TemplatedParent}}">
                                                                                                 <Viewbox.LayoutTransform>
-                                                                                                    <ScaleTransform ScaleY="1"
-                                                                                                                    ScaleX="1" />
+                                                                                                    <ScaleTransform
+                                                                                                        ScaleY="1"
+                                                                                                        ScaleX="1" />
                                                                                                 </Viewbox.LayoutTransform>
                                                                                                 <Canvas Height="17"
                                                                                                         Uid="Canvas_6"
                                                                                                         Width="13">
-                                                                                                    <Path Data="F1 M1,0 L10,0 L11,1 L11,13 L6.5,17 L4.5,17 L0,13 L0,1 L1,0 z"
-                                                                                                          Fill="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}"
-                                                                                                          Uid="Path_13" />
-                                                                                                    <Path Data="F1 M1,0 L10,0 L11,1 L11,13 L6.5,17 L4.5,17 L0,13 L0,1 L1,0 z"
-                                                                                                          StrokeEndLineCap="Round"
-                                                                                                          StrokeDashCap="Round"
-                                                                                                          Stroke="{TemplateBinding Background}"
-                                                                                                          StrokeThickness="0.75"
-                                                                                                          StrokeMiterLimit="1"
-                                                                                                          StrokeLineJoin="Round"
-                                                                                                          Uid="Path_14">
+                                                                                                    <Path
+                                                                                                        Data="F1 M1,0 L10,0 L11,1 L11,13 L6.5,17 L4.5,17 L0,13 L0,1 L1,0 z"
+                                                                                                        Fill="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}"
+                                                                                                        Uid="Path_13" />
+                                                                                                    <Path
+                                                                                                        Data="F1 M1,0 L10,0 L11,1 L11,13 L6.5,17 L4.5,17 L0,13 L0,1 L1,0 z"
+                                                                                                        StrokeEndLineCap="Round"
+                                                                                                        StrokeDashCap="Round"
+                                                                                                        Stroke="{TemplateBinding Background}"
+                                                                                                        StrokeThickness="0.75"
+                                                                                                        StrokeMiterLimit="1"
+                                                                                                        StrokeLineJoin="Round"
+                                                                                                        Uid="Path_14">
                                                                                                         <Path.Fill>
-                                                                                                            <LinearGradientBrush EndPoint="1,0.5"
-                                                                                                                                 StartPoint="0,0.5">
+                                                                                                            <LinearGradientBrush
+                                                                                                                EndPoint="1,0.5"
+                                                                                                                StartPoint="0,0.5">
                                                                                                                 <LinearGradientBrush.RelativeTransform>
                                                                                                                     <TransformGroup>
-                                                                                                                        <TranslateTransform X="-0.5"
-                                                                                                                                            Y="-0.5" />
-                                                                                                                        <ScaleTransform ScaleY="1"
-                                                                                                                                        ScaleX="1" />
-                                                                                                                        <SkewTransform AngleY="0"
-                                                                                                                                       AngleX="0" />
-                                                                                                                        <RotateTransform Angle="110" />
-                                                                                                                        <TranslateTransform X="0.5"
-                                                                                                                                            Y="0.5" />
+                                                                                                                        <TranslateTransform
+                                                                                                                            X="-0.5"
+                                                                                                                            Y="-0.5" />
+                                                                                                                        <ScaleTransform
+                                                                                                                            ScaleY="1"
+                                                                                                                            ScaleX="1" />
+                                                                                                                        <SkewTransform
+                                                                                                                            AngleY="0"
+                                                                                                                            AngleX="0" />
+                                                                                                                        <RotateTransform
+                                                                                                                            Angle="110" />
+                                                                                                                        <TranslateTransform
+                                                                                                                            X="0.5"
+                                                                                                                            Y="0.5" />
                                                                                                                     </TransformGroup>
                                                                                                                 </LinearGradientBrush.RelativeTransform>
-                                                                                                                <GradientStop Color="#CC999999"
-                                                                                                                              Offset="0.5" />
-                                                                                                                <GradientStop Color="#CCFFFFFF"
-                                                                                                                              Offset="0.8" />
-                                                                                                                <GradientStop Color="#CCFFFFFF"
-                                                                                                                              Offset="0.2" />
+                                                                                                                <GradientStop
+                                                                                                                    Color="#CC999999"
+                                                                                                                    Offset="0.5" />
+                                                                                                                <GradientStop
+                                                                                                                    Color="#CCFFFFFF"
+                                                                                                                    Offset="0.8" />
+                                                                                                                <GradientStop
+                                                                                                                    Color="#CCFFFFFF"
+                                                                                                                    Offset="0.2" />
                                                                                                             </LinearGradientBrush>
                                                                                                         </Path.Fill>
                                                                                                     </Path>
@@ -1355,10 +1381,11 @@
                                                         <Canvas Height="32"
                                                                 Uid="Canvas_5"
                                                                 Width="32">
-                                                            <Path Fill="{Binding Background, RelativeSource={RelativeSource TemplatedParent}}"
-                                                                  Height="32"
-                                                                  Uid="Path_10"
-                                                                  Width="32">
+                                                            <Path
+                                                                Fill="{Binding Background, RelativeSource={RelativeSource TemplatedParent}}"
+                                                                Height="32"
+                                                                Uid="Path_10"
+                                                                Width="32">
                                                                 <Path.Data>
                                                                     <GeometryGroup>
                                                                         <EllipseGeometry Center="16,16"
@@ -1597,7 +1624,7 @@
                                     BorderThickness="1">
                                 <Grid Height="3.5in"
                                       Width="2.5in"
-                                      Background="Pink"></Grid>
+                                      Background="Pink" />
                             </Border>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>

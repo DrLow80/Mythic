@@ -46,19 +46,19 @@ namespace Mythic.Project.Roller
 
         public event EventHandler CanExecuteChanged
         {
-            add { CommandManager.RequerySuggested += value; }
-            remove { CommandManager.RequerySuggested -= value; }
+            add => CommandManager.RequerySuggested += value;
+            remove => CommandManager.RequerySuggested -= value;
         }
 
         [DebuggerStepThrough]
         public bool CanExecute(object parameter)
         {
-            return canExecute == null ? true : canExecute((T)parameter);
+            return canExecute == null ? true : canExecute((T) parameter);
         }
 
         public void Execute(object parameter)
         {
-            execute((T)parameter);
+            execute((T) parameter);
         }
     }
 }
